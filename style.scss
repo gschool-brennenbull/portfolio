@@ -2,13 +2,12 @@
   box-sizing: border-box;
 }
 body{
-  background: #919396;
-  padding: 0px 10px 0px 10px;
-  // padding-left: 100px;
-  // padding-top: 100px;
+  background: #f9fbff;
+  padding: 10px 0px 10px 0px;
   height: 100vh;
   width: 100vw;
-
+  perspective: 12000px;
+  perspective-origin: center;
 }
 
 .wrapper{
@@ -19,8 +18,7 @@ body{
   padding: 0;
   top: 0;
   text-align: center;
-  perspective: 8000px;
-  perspective-origin: center;
+  box-shadow: 3px 19px 36px 9px rgba(89, 90, 91, 0.43);
   .menu{
     width: 100%;
     height: 33.3%;
@@ -29,44 +27,48 @@ body{
       top: 0;
       width: 100%;
       height: 100%;
-      // perspective: 1000px;
-      // perspective-origin: center;
     }
     .middle{
       position: relative;
       top: 0;
       width: 100%;
       height: 100%;
-      // perspective: 8000px;
-      // perspective-origin: center;
     }
     .bottom{
       position: relative;
       top: 0;
       width: 100%;
       height: 100%;
-      // perspective: 9000px;
-      // perspective-origin: center;
     }
   }
 }
+.front, .middle, .bottom{
+  box-shadow: rgba(89, 90, 91, 0.43);
+}
 
-.front, .back{
+.front, .right, .left, .back{
   width: 100%;
   height: 100%;
   position: absolute;
   backface-visibility: hidden;
 }
 
-.back{
+.right{
   background: orangered;
   background-size: 100% 100%;
-  transform: rotateY(90deg);
+}
+
+.left{
+  background: lightblue;
+}
+
+.back{
+  background: lightgreen;
 }
 
 .top{
   transform-style: preserve-3d;
-  transition: transform 1000ms ease-in-out;
+  transition: transform 10000ms ease-in-out;
   .front{
     background: url('images/top-back.png');
     background-repeat: no-repeat;
@@ -97,27 +99,62 @@ body{
   }
 }
 
-.menu:hover > .top{
-  // animation: spin 4000ms linear infinite;
-  transform: rotateY(-90deg);
-  // transform-origin: left;
+.menu.rotateRight{
+  .top{
+    animation: spinRight 800ms ease-in-out 0ms 1 forwards;
+  }
+  .middle{
+    animation: spinRight 800ms ease-in-out 0ms 1 forwards;
+  }
+  .bottom{
+    animation: spinRight 800ms ease-in-out 0ms 1 forwards;
+  }
 }
 
-.menu:hover .middle{
-  transform: rotateY(-90deg);
-
+.menu.rotateLeft{
+  .top{
+    animation: spinLeft 800ms ease-in-out 0ms 1 forwards;
+  }
+  .middle{
+    animation: spinLeft 800ms ease-in-out 0ms 1 forwards;
+  }
+  .bottom{
+    animation: spinLeft 800ms ease-in-out 0ms 1 forwards;
+  }
 }
 
-.menu:hover .bottom{
-  transform: rotateY(-90deg);
-  // transform-origin: left;
-}
 
-@keyframes spin {
+
+@keyframes spinRight {
   0%{
-    transform: rotateY(360deg);
+    transform: rotateY(0deg);
+  }
+  10%, 20%{
+    transform: rotateY(5deg);
+  }
+  80%, 90%{
+    transform: rotateY(-100deg);
+  }
+  100%{
+    transform: rotateY(-90deg);
+  }
+}
+
+@keyframes spinLeft {
+  0%{
+    transform: rotateY(-90deg);
+  }
+  10%, 20%{
+    transform: rotateY(-100deg);
+  }
+  80%, 90%{
+    transform: rotateY(5deg);
   }
   100%{
     transform: rotateY(0deg);
   }
+}
+
+.menu:hover .top{
+  transform: rotateY(340deg);
 }
