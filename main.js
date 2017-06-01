@@ -1,15 +1,21 @@
+let cubeWidth;
 $(document).ready(()=>{
+  cubeWidth = $('.wrapper').width();
   setTransform();
   setWrapper();
 });
 
-let cubeWidth = $('.wrapper').width();
+$(window).resize(()=>{
+  cubeWidth = $('.wrapper').width();
+  setTransform();
+  setWrapper();
+});
 
 function setTransform(){
   $('.right').css('transform','translateX('+cubeWidth/2+'px) rotateY(90deg)');
   $('.front').css('transform','translateZ('+cubeWidth/2+'px)');
   $('.left').css('transform','translateX(-'+cubeWidth/2+'px) rotateY(-90deg)');
-  $('.back').css('transform','translatez(-'+cubeWidth/2+'px) rotateX(180deg)')
+  $('.back').css('transform','translatez(-'+cubeWidth/2+'px) rotateX(180deg)');
 }
 
 function setWrapper(){
