@@ -26,9 +26,13 @@ $('.menu').on('click', function(){
   if(!$(this).hasClass('rotateRight')){
     $(this).removeClass('rotateLeft');
     $(this).addClass('rotateRight');
+    $('.top').addClass('collapseUp');
+    $('.bottom').addClass('collapseDown');
   }else{
     $(this).removeClass('rotateRight');
     $(this).addClass('rotateLeft');
+    $('.top').removeClass('collapseUp');
+    $('.bottom').removeClass('collapseDown');
   }
 });
 
