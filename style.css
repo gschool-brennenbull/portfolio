@@ -7,7 +7,8 @@ body {
   height: 100vh;
   width: 100vw;
   perspective: 12000px;
-  perspective-origin: center; }
+  perspective-origin: center;
+  font-family: 'Exo 2', sans-serif; }
 
 .wrapper {
   display: block;
@@ -33,7 +34,12 @@ body {
         background: url("images/top-back.png");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 100% 100%; }
+        background-size: 100% 100%;
+        font-size: 6em;
+        color: rgba(214, 214, 214, 0.7);
+        text-shadow: 1px 2px 3px black; }
+        .wrapper .menu.top .front .bio::first-letter {
+          font-size: 8rem; }
     .wrapper .menu.middle {
       position: relative;
       top: 0;
@@ -44,7 +50,12 @@ body {
         background: url("images/middle-back.png");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 100% 100%; }
+        background-size: 100% 100%;
+        font-size: 6em;
+        color: rgba(214, 214, 214, 0.7);
+        text-shadow: 1px 2px 3px black; }
+        .wrapper .menu.middle .front .projects::first-letter {
+          font-size: 8rem; }
       .wrapper .menu.middle .trigger {
         position: absolute;
         top: 50%;
@@ -64,20 +75,73 @@ body {
         background: url("images/bottom-back.png");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 100% 100%; }
+        background-size: 100% 100%;
+        font-size: 6em;
+        color: rgba(214, 214, 214, 0.7);
+        text-shadow: 1px 2px 3px black; }
+        .wrapper .menu.bottom .front .links::first-letter {
+          font-size: 8rem; }
+
+.text-container {
+  margin-left: 2vw;
+  position: relative;
+  width: 50vw;
+  height: 10vh;
+  display: flex; }
 
 .front, .right, .left, .back {
   width: 100%;
   height: 100%;
   position: absolute;
+  overflow: hidden;
   backface-visibility: hidden;
   box-shadow: inset -5px 5px 7px 0px #414141, inset 5px -5px 7px 0px #414141;
   border: 1px solid #cacbce;
-  opacity: 0.85; }
+  opacity: 0.9; }
 
 .right {
-  background: orangered;
-  background-size: 100% 100%; }
+  background: url("images/grey_wash_wall_@2X.png"); }
+
+.about {
+  width: 50%;
+  height: 85%;
+  left: 50%;
+  margin-top: 2vh;
+  margin-left: -25%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .about .headshot {
+    width: 20%;
+    border: 2px solid grey;
+    margin-right: 1vw; }
+  .about .info {
+    border-left: 5px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; }
+    .about .info .under {
+      width: 100%;
+      height: 0;
+      border-bottom: 5px solid black; }
+    .about .info p {
+      width: 100%; }
+
+.social {
+  width: 50%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  margin-left: -25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end; }
+  .social .icon {
+    display: inline-block; }
 
 .left {
   background: lightblue; }
@@ -154,6 +218,11 @@ body {
     height: 33.3%; }
   100% {
     height: 0%; } }
+@keyframes childup {
+  0% {
+    height: 100%; }
+  100% {
+    height: 0%; } }
 @keyframes down {
   0% {
     top: 0;
@@ -184,6 +253,7 @@ body {
     bottom: 0;
     height: 33.3%; } }
 .clear {
+  display: inline-block;
   clear: both;
   content: ''; }
 
