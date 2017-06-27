@@ -11,6 +11,7 @@ $(window).resize(()=>{
   setWrapper();
 });
 
+
 function setTransform(){
   $('.right').css('transform','translateX('+cubeWidth/2+'px) rotateY(90deg)');
   $('.front').css('transform','translateZ('+cubeWidth/2+'px)');

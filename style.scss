@@ -192,6 +192,36 @@ body{
   }
 }
 
+.modal{
+  width: 80vw;
+  position: relative;
+  padding: 5px;
+  border: 5px solid gray;
+  .image{
+    display: inline-block;
+    width: 40%;
+    border-right: 5px solid black;
+  }
+  .discription{
+    margin-left: 5px;
+    display: inline-block;
+    width: 40%;
+    top: 0;
+  }
+  .technologies{
+    border-top: 5px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 3vh;
+  }
+}
+
+.hidden{
+  display: none;
+}
+
 .left{
   background: lightblue;
 }
