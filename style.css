@@ -56,15 +56,15 @@ body {
         text-shadow: 1px 2px 3px black; }
         .wrapper .menu.middle .front .projects::first-letter {
           font-size: 8rem; }
-      .wrapper .menu.middle .trigger {
+      .wrapper .menu.middle .logo {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -10%;
-        margin-top: -1.5%;
-        width: 20%;
-        height: 20%;
-        background: blue; }
+        top: 1%;
+        right: 1%;
+        width: 75px;
+        height: 75px;
+        background: url("images/expand-two-diagonal-arrows-symbol.png");
+        background-repeat: no-repeat;
+        background-position: center; }
     .wrapper .menu.bottom {
       float: left;
       position: relative;
@@ -133,15 +133,31 @@ body {
   width: 50%;
   position: relative;
   left: 50%;
-  top: 50%;
+  top: 25%;
   bottom: auto;
   margin-left: -25%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: flex-end; }
+  align-items: center; }
   .social .icon {
     display: inline-block; }
+
+.thumbnail-container {
+  width: 75%;
+  position: relative;
+  left: 50%;
+  margin-left: -33.5%;
+  top: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; }
+  .thumbnail-container .thumbnail {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
 
 .left {
   background: lightblue; }

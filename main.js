@@ -25,13 +25,13 @@ function setWrapper(){
 function collapseExpandTrigger(target){
   if($('.top').hasClass('rotateRight')){
     $('.top').removeClass('rotateRight');
-  }else if($('.bottom').hasClass('rotateRight')){
+  } if($('.bottom').hasClass('rotateRight')){
     $('.bottom').removeClass('rotateRight');
   }
   $('.top').addClass('collapseUp');
   $('.bottom').addClass('collapseDown');
-  if(target.parent().parent().hasClass('fill')){
-    target.parent().parent().removeClass('fill');
+  if(target.closest('div.menu').hasClass('fill')){
+    target.closest('div.menu').removeClass('fill');
     $('.top').removeClass('collapseUp');
     $('.bottom').removeClass('collapseDown');
     $('.top').addClass('expandDown');
@@ -43,17 +43,17 @@ function collapseExpandTrigger(target){
       $('.middle').removeClass('shrink');
     }, 2000);
   }else{
-    target.parent().parent().addClass('fill');
+    target.closest('div.menu').addClass('fill');
   }
 }
 
 function collapseExpandOffTrigger(target){
   if($('.top').hasClass('rotateRight')){
     $('.top').removeClass('rotateRight');
-  }else if($('.bottom').hasClass('rotateRight')){
+  } if($('.bottom').hasClass('rotateRight')){
     $('.bottom').removeClass('rotateRight');
   }
-  target.parent().removeClass('fill');
+  target.closest('div.menu').removeClass('fill');
   $('.top').removeClass('collapseUp');
   $('.bottom').removeClass('collapseDown');
   $('.top').addClass('expandDown');
@@ -67,10 +67,11 @@ function collapseExpandOffTrigger(target){
 }
 
 $('.wrapper').on('click', function(ele){
-  var $target = $(ele.target);
+  var $target = $(ele.target).closest('div');
   if($target.hasClass('trigger')){
+    console.log($target);
     collapseExpandTrigger($target);
-  }else if ($target.parent().hasClass('fill')) {
+  }else if ($target.closest('div.menu').hasClass('fill')) {
     collapseExpandOffTrigger($target);
   }else{
     $('.fill').removeClass('fill');
