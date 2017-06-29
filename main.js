@@ -11,6 +11,25 @@ $(window).resize(()=>{
   setWrapper();
 });
 
+function closeModal() {
+  if(!$('#meteor-mapper').hasClass('hidden')){
+    console.log('in');
+    $('#meteor-mapper').addClass('hidden');
+  }else if(!$('#muzica').hasClass('hidden')){
+    $('#muzica').addClass('hidden');
+  }else if(!$('#pixel-art').hasClass('hidden')){
+    $('#pixel-art').addClass('hidden');
+  }
+}
+
+function showThumbnail() {
+  if($('.project-title').hasClass('hidden') ||
+  $('.thumbnail-container').hasClass('hidden')){
+    $('.project-title').removeClass('hidden');
+    $('.thumbnail-container').removeClass('hidden');
+    $('.logo').addClass('hidden');
+  }
+}
 
 function setTransform(){
   $('.right').css('transform','translateX('+cubeWidth/2+'px) rotateY(90deg)');
@@ -26,12 +45,16 @@ function setWrapper(){
 function collapseExpandTrigger(target){
   if($('.top').hasClass('rotateRight')){
     $('.top').removeClass('rotateRight');
-  } if($('.bottom').hasClass('rotateRight')){
+  }
+  if($('.bottom').hasClass('rotateRight')){
     $('.bottom').removeClass('rotateRight');
   }
+
   $('.top').addClass('collapseUp');
   $('.bottom').addClass('collapseDown');
   if(target.closest('div.menu').hasClass('fill')){
+    closeModal();
+    showThumbnail();
     target.closest('div.menu').removeClass('fill');
     $('.top').removeClass('collapseUp');
     $('.bottom').removeClass('collapseDown');
@@ -51,10 +74,13 @@ function collapseExpandTrigger(target){
 function collapseExpandOffTrigger(target){
   if($('.top').hasClass('rotateRight')){
     $('.top').removeClass('rotateRight');
-  } if($('.bottom').hasClass('rotateRight')){
+  }
+  if($('.bottom').hasClass('rotateRight')){
     $('.bottom').removeClass('rotateRight');
   }
   target.closest('div.menu').removeClass('fill');
+  closeModal();
+  showThumbnail();
   $('.top').removeClass('collapseUp');
   $('.bottom').removeClass('collapseDown');
   $('.top').addClass('expandDown');
@@ -70,7 +96,6 @@ function collapseExpandOffTrigger(target){
 $('.wrapper').on('click', function(ele){
   var $target = $(ele.target).closest('div');
   if($target.hasClass('trigger')){
-    console.log($target);
     collapseExpandTrigger($target);
   }else if ($target.closest('div.menu').hasClass('fill')) {
     collapseExpandOffTrigger($target);
@@ -90,5 +115,25 @@ $('.wrapper').on('click', function(ele){
         $('.bottom').removeClass('expandUp');
       }, 2000);
     }
+  }
+});
+
+$('.thumbnail-container').on('click', '.thumbnail', function(ele){
+  var $clickedThumb = ele.currentTarget;
+  if($clickedThumb.id == '1'){
+    $('#meteor-mapper').removeClass('hidden');
+    $('.project-title').addClass('hidden');
+    $('.thumbnail-container').addClass('hidden');
+    $('.logo').removeClass('hidden');
+  }else if($clickedThumb.id == '2'){
+    $('#muzica').removeClass('hidden');
+    $('.project-title').addClass('hidden');
+    $('.thumbnail-container').addClass('hidden');
+    $('.logo').removeClass('hidden');
+  }else if($clickedThumb.id == '3'){
+    $('#pixel-art').removeClass('hidden');
+    $('.project-title').addClass('hidden');
+    $('.thumbnail-container').addClass('hidden');
+    $('.logo').removeClass('hidden');
   }
 });

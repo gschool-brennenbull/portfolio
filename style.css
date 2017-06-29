@@ -1,6 +1,3 @@
-* {
-  box-sizing: border-box; }
-
 body {
   background: #f9fbff;
   padding: 10px 0px 10px 0px;
@@ -161,13 +158,23 @@ body {
 
 .modal {
   width: 80vw;
-  position: relative;
+  height: 80vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
   padding: 5px;
-  border: 5px solid gray; }
+  border: 5px solid gray;
+  perspective: 60000px; }
   .modal .image {
     display: inline-block;
     width: 40%;
     border-right: 5px solid black; }
+    .modal .image img {
+      width: 95%;
+      height: 95%; }
   .modal .discription {
     margin-left: 5px;
     display: inline-block;
