@@ -186,7 +186,18 @@ body{
     width: 300px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    span{
+      margin-left: 2px;
+      display: block;
+      background-color: black;
+      width: 100%;
+      height: 3px;
+      border-radius: 5px;
+    }
+    &:hover{
+      cursor: pointer;
+    }
   }
 }
 
@@ -200,8 +211,8 @@ body{
   margin: auto;
   position: absolute;
   padding: 5px;
-  border: 5px solid gray;
   perspective: 60000px;
+  animation: showmodal 800ms linear 0ms 1 forwards;
   .image{
     display: inline-block;
     width: 40%;
@@ -211,11 +222,12 @@ body{
       height: 95%;
     }
   }
-  .discription{
+  .description{
     margin-left: 5px;
     display: inline-block;
     width: 40%;
     top: 0;
+    font-size: 1.2em;
   }
   .technologies{
     border-top: 5px solid black;
@@ -224,10 +236,33 @@ body{
     justify-content: space-around;
     width: 100%;
     padding-top: 3vh;
-    // img{
-    //   width: 10vw;
-    //   height: 10vh;
-    // }
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+
+}
+
+.shrinkModal{
+  animation: shrinkmodal 800ms linear 0ms 1 forwards;
+}
+
+@keyframes showmodal {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes shrinkmodal {
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(0);
   }
 }
 
@@ -336,6 +371,11 @@ body{
 .menu:hover {
   .front, .right, .back, .left{
     opacity: 1;
+  }
+}
+
+.menu{
+  .front:hover{
     cursor: pointer;
   }
 }

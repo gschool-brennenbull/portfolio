@@ -13,12 +13,23 @@ $(window).resize(()=>{
 
 function closeModal() {
   if(!$('#meteor-mapper').hasClass('hidden')){
-    console.log('in');
     $('#meteor-mapper').addClass('hidden');
+    $('#meteor-mapper').addClass('shrinkModal');
+    setTimeout(function() {
+      $('#meteor-mapper').removeClass('shrinkModal');
+    }, 900);
   }else if(!$('#muzica').hasClass('hidden')){
     $('#muzica').addClass('hidden');
+    $('#muzica').addClass('shrinkModal');
+    setTimeout(function() {
+      $('#muzica').removeClass('shrinkModal');
+    }, 900);
   }else if(!$('#pixel-art').hasClass('hidden')){
     $('#pixel-art').addClass('hidden');
+    $('#pixel-art').addClass('shrinkModal');
+    setTimeout(function() {
+      $('#pixel-art').removeClass('shrinkModal');
+    }, 900);
   }
 }
 
@@ -72,25 +83,25 @@ function collapseExpandTrigger(target){
 }
 
 function collapseExpandOffTrigger(target){
-  if($('.top').hasClass('rotateRight')){
-    $('.top').removeClass('rotateRight');
-  }
-  if($('.bottom').hasClass('rotateRight')){
-    $('.bottom').removeClass('rotateRight');
-  }
-  target.closest('div.menu').removeClass('fill');
-  closeModal();
-  showThumbnail();
-  $('.top').removeClass('collapseUp');
-  $('.bottom').removeClass('collapseDown');
-  $('.top').addClass('expandDown');
-  $('.bottom').addClass('expandUp');
-  $('.middle').addClass('shrink');
-  setTimeout(function(){
-    $('.top').removeClass('expandDown');
-    $('.bottom').removeClass('expandUp');
-    $('.middle').removeClass('shrink');
-  }, 800);
+  // if($('.top').hasClass('rotateRight')){
+  //   $('.top').removeClass('rotateRight');
+  // }
+  // if($('.bottom').hasClass('rotateRight')){
+  //   $('.bottom').removeClass('rotateRight');
+  // }
+  // target.closest('div.menu').removeClass('fill');
+  // closeModal();
+  // showThumbnail();
+  // $('.top').removeClass('collapseUp');
+  // $('.bottom').removeClass('collapseDown');
+  // $('.top').addClass('expandDown');
+  // $('.bottom').addClass('expandUp');
+  // $('.middle').addClass('shrink');
+  // setTimeout(function(){
+  //   $('.top').removeClass('expandDown');
+  //   $('.bottom').removeClass('expandUp');
+  //   $('.middle').removeClass('shrink');
+  // }, 800);
 }
 
 $('.wrapper').on('click', function(ele){
@@ -113,7 +124,7 @@ $('.wrapper').on('click', function(ele){
       setTimeout(function(){
         $('.top').removeClass('expandDown');
         $('.bottom').removeClass('expandUp');
-      }, 2000);
+      }, 900);
     }
   }
 });
@@ -125,15 +136,24 @@ $('.thumbnail-container').on('click', '.thumbnail', function(ele){
     $('.project-title').addClass('hidden');
     $('.thumbnail-container').addClass('hidden');
     $('.logo').removeClass('hidden');
+    $('.top').removeClass('expandDown');
+    $('.bottom').removeClass('expandUp');
+    $('.middle').removeClass('shrink');
   }else if($clickedThumb.id == '2'){
     $('#muzica').removeClass('hidden');
     $('.project-title').addClass('hidden');
     $('.thumbnail-container').addClass('hidden');
     $('.logo').removeClass('hidden');
+    $('.top').removeClass('expandDown');
+    $('.bottom').removeClass('expandUp');
+    $('.middle').removeClass('shrink');
   }else if($clickedThumb.id == '3'){
     $('#pixel-art').removeClass('hidden');
     $('.project-title').addClass('hidden');
     $('.thumbnail-container').addClass('hidden');
     $('.logo').removeClass('hidden');
+    $('.top').removeClass('expandDown');
+    $('.bottom').removeClass('expandUp');
+    $('.middle').removeClass('shrink');
   }
 });

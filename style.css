@@ -154,7 +154,16 @@ body {
     width: 300px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between; }
+    justify-content: space-around; }
+    .thumbnail-container .thumbnail span {
+      margin-left: 2px;
+      display: block;
+      background-color: black;
+      width: 100%;
+      height: 3px;
+      border-radius: 5px; }
+    .thumbnail-container .thumbnail:hover {
+      cursor: pointer; }
 
 .modal {
   width: 80vw;
@@ -166,8 +175,8 @@ body {
   margin: auto;
   position: absolute;
   padding: 5px;
-  border: 5px solid gray;
-  perspective: 60000px; }
+  perspective: 60000px;
+  animation: showmodal 800ms linear 0ms 1 forwards; }
   .modal .image {
     display: inline-block;
     width: 40%;
@@ -175,11 +184,12 @@ body {
     .modal .image img {
       width: 95%;
       height: 95%; }
-  .modal .discription {
+  .modal .description {
     margin-left: 5px;
     display: inline-block;
     width: 40%;
-    top: 0; }
+    top: 0;
+    font-size: 1.2em; }
   .modal .technologies {
     border-top: 5px solid black;
     display: flex;
@@ -187,7 +197,22 @@ body {
     justify-content: space-around;
     width: 100%;
     padding-top: 3vh; }
+  .modal:hover {
+    cursor: pointer; }
 
+.shrinkModal {
+  animation: shrinkmodal 800ms linear 0ms 1 forwards; }
+
+@keyframes showmodal {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+@keyframes shrinkmodal {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0); } }
 .hidden {
   display: none; }
 
@@ -252,7 +277,9 @@ body {
     height: 100%;
     bottom: 66.6%; } }
 .menu:hover .front, .menu:hover .right, .menu:hover .back, .menu:hover .left {
-  opacity: 1;
+  opacity: 1; }
+
+.menu .front:hover {
   cursor: pointer; }
 
 .menu.collapseUp {
