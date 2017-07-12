@@ -217,10 +217,10 @@ body {
   display: none; }
 
 .left {
-  background: lightblue; }
+  background: darkgrey; }
 
 .back {
-  background: lightgreen; }
+  background: darkgrey; }
 
 .menu.rotateRight.top {
   animation: spinRight 800ms linear 0ms 1 forwards; }
